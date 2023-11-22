@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.4</version>
+        <version>3.1.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example.stream.eventhub</groupId>
@@ -23,17 +23,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>com.azure.spring</groupId>-->
-        <!--            <artifactId>spring-cloud-azure-stream-binder-eventhubs</artifactId>-->
-        <!--            <version>${azure.stream.binder.eventhubs.version}</version>-->
-        <!--        </dependency>-->
+                <dependency>
+                    <groupId>com.azure.spring</groupId>
+                    <artifactId>spring-cloud-azure-stream-binder-eventhubs</artifactId>
+                    <version>${azure.stream.binder.eventhubs.version}</version>
+                </dependency>
 
-        <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-            <version>2.8.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.azure.spring</groupId>-->
+<!--            <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>-->
+<!--            <version>2.8.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
