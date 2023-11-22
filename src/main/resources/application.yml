@@ -10,16 +10,17 @@ spring:
       resource-group: engineering-openfwkt-rsg-weu1-dev
       subscription-id: b21f8a49-e132-4dcc-9044-62535fcc159f
       eventhub:
-        namespace: amigaeventhubs02
-        checkpoint-storage-account: amgfilemwstorage
+        namespace: eh-non-basic
+        checkpoint-storage-account: amgstorageaccount02
 #        checkpoint-access-key:
-        checkpoint-container: test-fer-eh01
+        checkpoint-container: testcontainer03
     stream:
       bindings:
         consume-in-0:
-          destination: test-fer-04
+          destination: cg1
+          group: testconsumergroup          
         supply-out-0:
-          destination: test-fer-04
+          destination: cg1
       eventhub:
         bindings:
           consume-in-0:
@@ -30,6 +31,13 @@ spring:
       poller:
         initial-delay: 0
         fixed-delay: 1000
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - bindings
 
 eventhub:
   conversation-sender:
