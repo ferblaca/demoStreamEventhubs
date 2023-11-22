@@ -1,0 +1,48 @@
+debug: true
+spring:
+  application:
+    name: demoStreamEventhub
+  cloud:
+    azure:
+      client-id: f93c85eb-fe7f-42b1-b49d-d848b9e6fad4
+      client-secret: 4/4M92PaSDsy8LStWDL4K7TRVcSM1OPHmZOPxPIdphs=
+      tenant-id: c8e8bdb6-8e7c-41d5-bc41-37fff3c33b75
+      resource-group: engineering-openfwkt-rsg-weu1-dev
+      subscription-id: b21f8a49-e132-4dcc-9044-62535fcc159f
+      eventhub:
+        namespace: amigaeventhubs02
+        checkpoint-storage-account: amgfilemwstorage
+#        checkpoint-access-key:
+        checkpoint-container: test-fer-eh01
+    stream:
+      bindings:
+        consume-in-0:
+          destination: test-fer-04
+        supply-out-0:
+          destination: test-fer-04
+      eventhub:
+        bindings:
+          consume-in-0:
+            consumer:
+              checkpoint-mode: MANUAL
+      function:
+        definition: consume;supply;
+      poller:
+        initial-delay: 0
+        fixed-delay: 1000
+
+eventhub:
+  conversation-sender:
+    namespace: datastream-ehn-weu1-pro-001
+    topic: mecmocloud-pro-za.communication-chat.conversation.v1
+    shared-access-key-name: zcom_moca_pro_mecmocloud_conversationSender_ehtk
+  qareport-listener:
+    namespace: datastream-ehn-weu1-pro-001
+    topic: mqabot-pro-za.communication-chat.qareport.v1
+    shared-access-key-name: zcom_moca_pro_mecmocloud_qaReportListener_ehtk
+    # shared-access-key: use secret
+    # checkpoint-access-key: use secret
+    checkpoint-storage-account: datastreamstaweu1pro001
+    checkpoint-container: zcom-moca-pro-mecmocloud-qareportlistener-chkp
+    consumer-group: zcom_moca_pro_mecmocloud_qareportlistener_cg
+    shared-access-key: pmp.DataStreaming-Azure-EventHub-Dev.zcom_moca_dev_mecmocloud_conversationSender
