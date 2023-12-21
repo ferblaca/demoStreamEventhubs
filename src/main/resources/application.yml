@@ -5,12 +5,12 @@ spring:
   cloud:
     azure:
       eventhubs:
-        connection-string: Endpoint=sb://eh-non-basic.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=tX4kqVRxhhjmYkLHWzm+BnuoMNbabYlMzAFA+nfTE2w=
+        connection-string: 
         processor:
           checkpoint-store:
-            account-name: amgstorageaccount02
-            account-key: Y0fSgZvsc/z6NJ9NIVtP4VJXztaCsshV1HIEH5tYi7WFUwi5f1AfKZ2PdhWQ+AQ2zzxZcsflPbIdlwILWJSE9A==
-            container-name: testcontainer03
+            account-name: 
+            account-key: 
+            container-name:
     function:
       definition: consume;supply
     stream:
