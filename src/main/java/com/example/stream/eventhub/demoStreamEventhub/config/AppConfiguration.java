@@ -2,6 +2,8 @@ package com.example.stream.eventhub.demoStreamEventhub.config;
 
 import java.util.function.Supplier;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -24,5 +26,13 @@ public class AppConfiguration {
         return null;
       }
     };
+  }
+
+  // workaround - https://github.com/spring-cloud/spring-cloud-stream/issues/2794#issuecomment-1863279349
+  @Bean
+  public ObjectMapper objectMapper() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.registerModule(new JavaTimeModule());
+    return objectMapper;
   }
 }
